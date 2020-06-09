@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        .Input{
+            width: 350px;
+            height: 35px; border-color: brown;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<center>
+    <h1>Create New Account</h1>
+
+    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+            Name  <br>
+            <input type="text" class="Input" placeholder="Full Name" required
+               name="name"><br>
+
+           Username  <br>
+            <input type="text" class="Input" placeholder="Username" required
+               name="un"><br>
+        Email  <br>
+            <input type="email" class="Input" placeholder="Email ID" required
+               name="email"><br>
+             Password <br>
+            <input type="password" class="Input" placeholder="Password" required
+           name="ps" ><br>
+
+
+
+        <button type="submit" class="Input">Register Now</button>
+    </form>
+<br><br>
+    <a href="{% url 'login' %}">Already User?, Login</a>
+</center>
+</body>
+</html>

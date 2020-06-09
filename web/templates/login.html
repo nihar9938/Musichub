@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+        <style>
+        .Input{
+            width: 350px;
+            height: 35px; border-color: brown;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            outline:none;
+        }
+
+    </style>
+</head>
+<body>
+<center>
+            <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+                {% if error %}
+                    <p style="color:red;font-size:30px;">Invalid User</p>
+                    User name<br>
+                    <input type="text" class="Input" placeholder="Username" value="{{ lun }}" required name="un"><br>
+                    Password <br>
+                    <input type="password" class="Input" placeholder="Password" required name="ps" autofocus><br>
+                    <button type="submit" class="Input">Login</button><br>
+                    <a href="{% url 'login' location %}">Switch your Acount</a>
+                {% else %}
+                    User name<br>
+                    <input type="text" class="Input" placeholder="Username" required name="un"><br>
+                    Password <br>
+                    <input type="password" class="Input" placeholder="Password" required name="ps" ><br>
+                    <button type="submit" class="Input">Login</button>
+                {% endif %}
+            </form>
+    <hr>
+    <a href="{% url 'register' %}">New user?Register</a>
+    </center>
+</body>
+</html>

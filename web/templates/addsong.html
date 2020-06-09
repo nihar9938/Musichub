@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Album</title>
+       <style>
+        .Input{
+            width: 350px;
+            height: 35px; border-color: brown;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            outline:none;
+        }
+
+    </style>
+</head>
+<body>
+<center>
+    <h1>Add New Song</h1>
+    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+        Choose Your Album<br>
+        <select class="Input" required name="album">
+            <option value="">Choose Your Album</option>
+            {% for album in albums %}
+                <option value="{{ album.id }}">{{album.Name}}</option>
+            {% endfor %}
+
+        </select>
+        <br>
+        Song Title <br>
+        <input type="text" class="Input" placeholder="Song Title" required
+               name="song_title"><br>
+        Song File<br>
+        <input type="file" name="song_file"><br><br>
+        <button type="submit" class="Input">Add New Song</button>
+    </form>
+</center>
+
+</body>
+</html>

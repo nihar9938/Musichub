@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Album</title>
+       <style>
+        .Input{
+            width: 350px;
+            height: 35px; border-color: brown;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            outline:none;
+        }
+
+    </style>
+</head>
+<body>
+<center>
+  <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+        Album Name <br>
+        {{ form.Name }}<br>
+        Artist Name <br>
+        {{ form.Artist }}<br>
+        Banner <br>
+        {{ form.image }}<br>
+        <button type="submit" class="Input">Add New Album</button>
+    </form>
+
+</center>
+
+</body>
+</html>
+</html>

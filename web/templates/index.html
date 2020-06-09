@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:allign="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Hub</title>
+    <!---Styling The WebSite-->
+    <style>
+    body{
+        background-color:#44178C;
+        background-size:cover;
+    }
+    .container1{
+        background-color:#6D21E8;
+        margin:3px;
+        border-radius:10px;    }
+    h1{
+        color:white;
+    }
+     .container{
+        margin:80px;
+    }
+    p{
+        color:red;
+        font-size:20px;
+    }
+    </style>
+</head>
+
+<!--HTML BODY -->
+<body>
+    <div class="container1">
+        <center><h1>Music Hub</h1></center>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}"><p>{{request.user.username}} - Logout</p></a>
+        {% else %}
+            <a href="{% url 'login' 'home' %}"><p>Login</p></a>
+        {% endif %}
+    </div>
+
+<center>
+<div class="container">
+    {%for i in albums%}
+    <div style="display:inline-block;height:200px;margin-right:10px;margin-top:20px;">
+        <div><a href="{% url 'myalbum' i.id %}">
+            <img src="{{ i.image.url }}" style="height:250px;width:250px;border-radius:20px"><br>
+            <center style="color:white">{{ i.Name }}</center></a><a href="{% url 'delete' i.id %}"><img src="https://cdn1.iconfinder.com/data/icons/color-bold-style/21/56-512.png" width="20px"></a>
+            <a href="{% url 'editalbum' i.id %}"><img src="https://www.pngfind.com/pngs/m/70-704605_edit-icon-red-edit-icon-hd-png-download.png" width="20px"></a>
+            </div></div>
+    {% endfor %}
+    </div>
+    <br><br>
+    <a href="{% url 'songlist' %}"> <button>Songs List</button></a>
+    <a href="{% url 'addalbum' %}"><button>Add Album</button></a>
+    <a href="{% url 'addsong' %}"><button>Add Song</button></a>
+    <hr>
+</center>
+</body>
+</html>

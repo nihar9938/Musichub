@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album Details</title>
+</head>
+<body>
+<h1>Name:{{ album.Name }}</h1>
+<p>Artist:{{ album.Artist }}</p>
+<img src="{{ album.image.url }}" style="Width:350px;height:200px;border-radius:25px">
+
+<br>
+<h3>List of songs</h3>
+{% for s in album_songs %}
+    {% if s.file %}
+        <a href="{{s.file.url}}"> <p>{{ s.title }}</p></a>
+    {% else %}
+        <p>{{ s.title }}</p>
+    {% endif %}
+{% endfor %}
+</body>
+</html>
